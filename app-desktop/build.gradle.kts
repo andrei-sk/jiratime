@@ -18,9 +18,11 @@ kotlin {
                 implementation(project(":data"))
                 implementation(project(":domain"))
                 implementation(project(":presentation"))
+                implementation(project(":ui"))
 
                 implementation(compose.desktop.currentOs)
                 implementation(libs.decompose.extensionsComposeJetbrains)
+                implementation(libs.kotlin.coroutines.swing)
             }
         }
     }

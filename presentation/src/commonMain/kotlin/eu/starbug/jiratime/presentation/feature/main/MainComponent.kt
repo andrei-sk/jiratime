@@ -1,4 +1,4 @@
-package eu.starbug.jiratime.shared.main
+package eu.starbug.jiratime.presentation.feature.main
 
 interface MainComponent {
 

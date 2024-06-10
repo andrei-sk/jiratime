@@ -19,11 +19,7 @@ kotlin {
         }
     }
 
-    listOf(
-        iosX64(),
-        iosArm64(),
-        iosSimulatorArm64(),
-    )
+    listOf(iosX64(), iosArm64(), iosSimulatorArm64())
         .takeIf { "XCODE_VERSION_MAJOR" in System.getenv().keys } // Export the framework only for Xcode builds
         ?.forEach {
             // This `shared` framework is exported for app-ios-swift
@@ -40,6 +36,9 @@ kotlin {
             dependencies {
                 //api(libs.decompose.decompose)
                 //api(libs.essenty.lifecycle)
+                api(project(":domain"))
+                //implementation(libs.ktor.client.core)
+                implementation(libs.koin.core)
             }
         }
         val commonTest by getting {

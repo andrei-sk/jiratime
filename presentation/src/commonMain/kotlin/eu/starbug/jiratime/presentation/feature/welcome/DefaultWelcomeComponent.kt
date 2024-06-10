@@ -1,10 +1,10 @@
-package eu.starbug.jiratime.shared.welcome
+package eu.starbug.jiratime.presentation.feature.welcome
 
 import com.arkivanov.decompose.ComponentContext
 import com.arkivanov.decompose.value.MutableValue
 import com.arkivanov.decompose.value.Value
 import com.arkivanov.decompose.value.update
-import eu.starbug.jiratime.shared.welcome.WelcomeComponent.Model
+import eu.starbug.jiratime.presentation.feature.welcome.WelcomeComponent.Model
 
 class DefaultWelcomeComponent(
     private val componentContext: ComponentContext,

@@ -1,9 +1,10 @@
-package eu.starbug.jiratime.shared.root
+package eu.starbug.jiratime.presentation.feature.root
 
 import com.arkivanov.decompose.router.stack.ChildStack
 import com.arkivanov.decompose.value.Value
-import eu.starbug.jiratime.shared.main.MainComponent
-import eu.starbug.jiratime.shared.welcome.WelcomeComponent
+import eu.starbug.jiratime.presentation.feature.dashboard.DashboardComponent
+import eu.starbug.jiratime.presentation.feature.main.MainComponent
+import eu.starbug.jiratime.presentation.feature.welcome.WelcomeComponent
 
 interface RootComponent {
 
@@ -14,5 +15,6 @@ interface RootComponent {
     sealed class Child {
         class Main(val component: MainComponent) : Child()
         class Welcome(val component: WelcomeComponent) : Child()
+        class Dashboard(val component: DashboardComponent): Child()
     }
 }

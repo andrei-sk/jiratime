@@ -1,4 +1,11 @@
-# Decompose Multiplatform Template
+# Strabug's Jira Time Tracker
+
+This project is a demonstration of using Kotlin Multiplatform on:
+* Android
+* iOS
+* Windows
+* Mac
+* Linux
 
 This is a Kotlin Multiplatform project template with [Decompose](https://github.com/arkivanov/decompose) configured.
 

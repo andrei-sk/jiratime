@@ -19,5 +19,6 @@ rootProject.name = "jiratime"
 include(":data")
 include(":domain")
 include(":presentation")
+include(":ui")
 include(":app-android")
 include(":app-desktop")

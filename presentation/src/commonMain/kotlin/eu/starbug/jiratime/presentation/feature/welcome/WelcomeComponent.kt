@@ -1,4 +1,4 @@
-package eu.starbug.jiratime.shared.welcome
+package eu.starbug.jiratime.presentation.feature.welcome
 
 import com.arkivanov.decompose.value.Value
 

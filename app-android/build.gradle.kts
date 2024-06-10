@@ -44,6 +44,8 @@ dependencies {
     implementation(project(":data"))
     implementation(project(":domain"))
     implementation(project(":presentation"))
+    implementation(project(":ui"))
     implementation(libs.androidx.activity.activityCompose)
     implementation(compose.foundation)
+    implementation(libs.koin.core)
 }

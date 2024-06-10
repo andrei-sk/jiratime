@@ -1,4 +1,4 @@
-package eu.starbug.jiratime.shared.root
+package eu.starbug.jiratime.presentation.feature.root
 
 import com.arkivanov.decompose.ComponentContext
 import com.arkivanov.decompose.router.stack.ChildStack
@@ -8,14 +8,15 @@ import com.arkivanov.decompose.router.stack.pop
 import com.arkivanov.decompose.router.stack.popTo
 import com.arkivanov.decompose.router.stack.push
 import com.arkivanov.decompose.value.Value
-import eu.starbug.jiratime.shared.main.DefaultMainComponent
-import eu.starbug.jiratime.shared.main.MainComponent
-import eu.starbug.jiratime.shared.root.RootComponent.Child
-import eu.starbug.jiratime.shared.welcome.DefaultWelcomeComponent
-import eu.starbug.jiratime.shared.welcome.WelcomeComponent
+import eu.starbug.jiratime.presentation.feature.dashboard.DashboardComponentImpl
+import eu.starbug.jiratime.presentation.feature.main.DefaultMainComponent
+import eu.starbug.jiratime.presentation.feature.main.MainComponent
+import eu.starbug.jiratime.presentation.feature.root.RootComponent.Child
+import eu.starbug.jiratime.presentation.feature.welcome.DefaultWelcomeComponent
+import eu.starbug.jiratime.presentation.feature.welcome.WelcomeComponent
 import kotlinx.serialization.Serializable
 
-class DefaultRootComponent(
+class RootComponentImpl(
     componentContext: ComponentContext,
 ) : RootComponent, ComponentContext by componentContext {
 
@@ -25,15 +26,16 @@ class DefaultRootComponent(
         childStack(
             source = navigation,
             serializer = Config.serializer(),
-            initialConfiguration = Config.Main,
+            initialConfiguration = Config.Dashboard,
             handleBackButton = true,
             childFactory = ::child,
         )
 
-    private fun child(config: Config, childComponentContext: ComponentContext): Child =
+    private fun child(config: Config, context: ComponentContext): Child =
         when (config) {
-            is Config.Main -> Child.Main(mainComponent(childComponentContext))
-            is Config.Welcome -> Child.Welcome(welcomeComponent(childComponentContext))
+            is Config.Main -> Child.Main(mainComponent(context))
+            is Config.Welcome -> Child.Welcome(welcomeComponent(context))
+            is Config.Dashboard -> Child.Dashboard(DashboardComponentImpl(context))
         }
 
     private fun mainComponent(componentContext: ComponentContext): MainComponent =
@@ -59,5 +61,8 @@ class DefaultRootComponent(
 
         @Serializable
         data object Welcome : Config
+
+        @Serializable
+        data object Dashboard: Config
     }
 }

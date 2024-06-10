@@ -6,15 +6,15 @@ import androidx.compose.ui.window.rememberWindowState
 import com.arkivanov.decompose.DefaultComponentContext
 import com.arkivanov.decompose.extensions.compose.lifecycle.LifecycleController
 import com.arkivanov.essenty.lifecycle.LifecycleRegistry
-import eu.starbug.jiratime.root.RootContent
-import eu.starbug.jiratime.shared.root.DefaultRootComponent
+import eu.starbug.jiratime.presentation.feature.root.RootComponentImpl
+import eu.starbug.jiratime.ui.feature.root.RootContent
 
 fun main() {
 
     val lifecycle = LifecycleRegistry()
 
     val root = runOnUiThread {
-        DefaultRootComponent(
+        RootComponentImpl(
             componentContext = DefaultComponentContext(lifecycle = lifecycle),
         )
     }
@@ -27,7 +27,7 @@ fun main() {
         Window(
             onCloseRequest = ::exitApplication,
             state = windowState,
-            title = "My Application"
+            title = "JiraTime"
         ) {
             RootContent(root)
         }
